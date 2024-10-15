@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moment.js and Lodash Example</title>
+    <!--Reference Moments.js and Lodash-->
+    <script src="moment.js"></script>
+    <script src="lodash.js"></script>
+</head>
+<body>
+    <h1>Lab 1</h1>
+    <div id="output"></div>
+
+    <script>
+        function appendToOutput(text) {
+            document.getElementById('output').innerHTML += text + '<br>';
+        }
+
+        // Date variable
+        let currentDate = moment();
+        appendToOutput('Current date: ' + currentDate.format('MMMM Do YYYY, h:mm:ss a'));
+        
+        // Moment.js functionality
+        let futureDate = currentDate.clone().add(7, 'days');
+        appendToOutput('Date after 7 days: ' + futureDate.format('MMMM Do YYYY'));
+        
+        let daysDifference = futureDate.diff(currentDate, 'days');
+        appendToOutput('Days difference: ' + daysDifference);
+
+        // Create array
+        let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        
+        // Lodash manipulation
+        let sum = _.sum(numbers);
+        appendToOutput('Sum of numbers: ' + sum);
+        
+        let average = _.mean(numbers);
+        appendToOutput('Average of numbers: ' + average);
+        
+        let shuffled = _.shuffle(numbers);
+        appendToOutput('Shuffled array: ' + shuffled.join(', '));
+    </script>
+</body>
+</html>
